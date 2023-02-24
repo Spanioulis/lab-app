@@ -1,0 +1,470 @@
+[
+   {
+      "id": 1,
+      "name": "Embudo Buchner grande",
+      "quantity": 15,
+      "format": "unidad"
+   },
+   {
+      "id": 2,
+      "name": "Embudo Buchner pequeño",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 3,
+      "name": "Embudo de vidrio grande",
+      "quantity": 9,
+      "format": "unidad"
+   },
+   {
+      "id": 4,
+      "name": "Embudo de vidrio pequeño",
+      "quantity": 5,
+      "format": "unidad"
+   },
+   {
+      "id": 5,
+      "name": "Kitasato 1 litro",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 6,
+      "name": "Kitasato 250 ml",
+      "quantity": 9,
+      "format": "unidad"
+   },
+   {
+      "id": 7,
+      "name": "Cristalizador 65 ml",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 8,
+      "name": "Cristalizador 85 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 9,
+      "name": "Vidrio de reloj 8 mm",
+      "quantity": 17,
+      "format": "unidad"
+   },
+   {
+      "id": 10,
+      "name": "Vidrio de reloj 80/70 mm",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 11,
+      "name": "Vidrio de reloj 60 mm",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 12,
+      "name": "Tubos de ensayo",
+      "quantity": 5,
+      "format": "unidad"
+   },
+   {
+      "id": 13,
+      "name": "Probeta 50 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 14,
+      "name": "Probeta 100 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 15,
+      "name": "Buretas 50 ml",
+      "quantity": 1,
+      "format": "caja"
+   },
+   {
+      "id": 16,
+      "name": "Embudo decantación 50 es",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 17,
+      "name": "Matraz aforado 1000 ml",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 18,
+      "name": "Matraz aforado 500 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 19,
+      "name": "Matraz aforado 250 ml",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 20,
+      "name": "Matraz aforado 100 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 21,
+      "name": "Matraz aforado 50 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 22,
+      "name": "Escobilla",
+      "quantity": 28,
+      "format": "unidad"
+   },
+   {
+      "id": 23,
+      "name": "Erlenmeyer 50 ml",
+      "quantity": 18,
+      "format": "unidad"
+   },
+   {
+      "id": 24,
+      "name": "Erlenmeyer 100 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 25,
+      "name": "Erlenmeyer 250 ml",
+      "quantity": 29,
+      "format": "unidad"
+   },
+   {
+      "id": 26,
+      "name": "Erlenmeyer 500 ml",
+      "quantity": 8,
+      "format": "unidad"
+   },
+   {
+      "id": 27,
+      "name": "Tubos recogida gases 50 ml",
+      "quantity": 6,
+      "format": "unidad"
+   },
+   {
+      "id": 28,
+      "name": "Pinzas crisol",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 29,
+      "name": "Taladratapones",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 30,
+      "name": "Láminas portaobjetos 50",
+      "quantity": 8,
+      "format": "unidad"
+   },
+   {
+      "id": 31,
+      "name": "Láminas portaobjetos 12",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 32,
+      "name": "Manguera laboratorio 50",
+      "quantity": 1,
+      "format": "caja"
+   },
+   {
+      "id": 33,
+      "name": "Papel indicador PH. 50",
+      "quantity": 9,
+      "format": "caja"
+   },
+   {
+      "id": 34,
+      "name": "Lavador frasco 50",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 35,
+      "name": "Frasco cilíndrico de plástico grande",
+      "quantity": 5,
+      "format": "unidad"
+   },
+   {
+      "id": 36,
+      "name": "Frasco cilíndrico de plástico pequeño",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 37,
+      "name": "Frasco topacio tapón rosca 125ml",
+      "quantity": 6,
+      "format": "unidad"
+   },
+   {
+      "id": 38,
+      "name": "Frasco topacio esmerilado 200 ml",
+      "quantity": 5,
+      "format": "unidad"
+   },
+   {
+      "id": 39,
+      "name": "Frasco topacio esmerilado 125 ml",
+      "quantity": 11,
+      "format": "unidad"
+   },
+   {
+      "id": 40,
+      "name": "Frasco blancoesmerilado 125 ml",
+      "quantity": 11,
+      "format": "unidad"
+   },
+   {
+      "id": 41,
+      "name": "Frasco blancoesmerilado pequeño",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 42,
+      "name": "Frasco blancoesmerilado 60 ml",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 43,
+      "name": "Frasco blancoesmerilado 125 ml",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 44,
+      "name": "Frasco blancoesmerilado 250 ml",
+      "quantity": 19,
+      "format": "unidad"
+   },
+   {
+      "id": 45,
+      "name": "Pipetas graduadas 25 ml",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 46,
+      "name": "Pipetas graduadas 1 ml",
+      "quantity": 12,
+      "format": "unidad"
+   },
+   {
+      "id": 47,
+      "name": "Pipetas graduadas 5/10 ml",
+      "quantity": 5,
+      "format": ""
+   },
+   {
+      "id": 48,
+      "name": "Pipeta aforada 1in/100 ml",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 49,
+      "name": "Pipeta aforada 10in/10 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 50,
+      "name": "Pipeta aforada 1in/10 ml",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 51,
+      "name": "Pipeta aforada 3,5 ml",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 52,
+      "name": "Calorímetro",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 53,
+      "name": "Pera de laboratorio",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 54,
+      "name": "Cuenta gotas",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 55,
+      "name": "Pipeta aspirador",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 56,
+      "name": "Jeringa de llenado aforado 10 ml",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 57,
+      "name": "Pinza de disección",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 58,
+      "name": "Lámina de porcelana y plato",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 59,
+      "name": "Placas petri",
+      "quantity": 3,
+      "format": "unidad"
+   },
+   {
+      "id": 60,
+      "name": "Frasco lavador gases 500 ml",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 61,
+      "name": "Tubo refrigerante recto",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 62,
+      "name": "Tubo de desecación",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 63,
+      "name": "Embudos cuentagotas 10 ml",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 64,
+      "name": "Balanza granatorio",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 65,
+      "name": "Amperímetro",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 66,
+      "name": "Miliamperímetro",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 67,
+      "name": "Juego de electrodos",
+      "quantity": 4,
+      "format": "unidad"
+   },
+   {
+      "id": 68,
+      "name": "Voltímetro pequeño",
+      "quantity": 8,
+      "format": "unidad"
+   },
+   {
+      "id": 69,
+      "name": "Voltímetro grande",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 70,
+      "name": "Placas de pruebas",
+      "quantity": 9,
+      "format": "caja"
+   },
+   {
+      "id": 71,
+      "name": "Brújula de bolsillo",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 72,
+      "name": "Espectroscopio",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 73,
+      "name": "Soldador de hierro",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 74,
+      "name": "Dinamómetro",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 75,
+      "name": "Termómetro 0-400º",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 76,
+      "name": "Termómetro alcohol pequeño",
+      "quantity": 2,
+      "format": "unidad"
+   },
+   {
+      "id": 77,
+      "name": "Termómetro alcohol grande",
+      "quantity": 1,
+      "format": "unidad"
+   },
+   {
+      "id": 78,
+      "name": "Termómetro",
+      "quantity": 1,
+      "format": "unidad"
+   }
+]
