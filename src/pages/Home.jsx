@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 
-const Overbooking = () => {
+const Home = () => {
   return (
     <>
-      <Navigation />
-      <div className="text-3xl text-purple-700 mb-5">
+      <div className="block">
         <img
-          className="object-cover h-30 w-96"
-          src="/book-lab_logo_main.png"
-          alt="logo-corporate"
+          className="object-position: center w-72"
+          src="/images/clinic-logo.jpg"
+          alt="logo-clinic"
         ></img>
       </div>
       <span className="inline-flex -space-x-px overflow-hidden rounded-md border bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
@@ -29,4 +28,4 @@ const Overbooking = () => {
   );
 };
 
-export default Overbooking;
+export default Home;

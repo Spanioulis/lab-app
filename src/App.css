@@ -12,11 +12,11 @@
 html,
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   height: max-content;
 }
 
 h1 {
-  color: #646cffaa
+  color: #646cffaa;
 }
