@@ -1,8 +1,7 @@
-import React from "react";
-import TestingP from "./TestingP";
+import React from 'react';
 
 const Overview = () => {
-  return <div>{/* <TestingP /> */}</div>;
+   return <div>Overview</div>;
 };
 
 export default Overview;
