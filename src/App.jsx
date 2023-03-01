@@ -1,26 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Booking, Overview, Navigation } from "./pages";
-import "./App.css";
-import TestingP from "./pages/TestingP";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home, Booking, Overview, Navigation, TestingP } from './pages';
+import './App.css';
 
 function App() {
-  return (
-    <>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Navigation />
-        <Router>
-          <Routes>
+   return (
+      <Router>
+         <Navigation />
+         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/bookings" element={<Booking />} />
             <Route path="/overview" element={<Overview />} />
-            <Route path="/testingp" element={<TestingP />} />
-          </Routes>
-        </Router>
-      </LocalizationProvider>
-    </>
-  );
+            <Route path="/testing" element={<TestingP />} />
+         </Routes>
+      </Router>
+   );
 }
 
 export default App;
