@@ -11,6 +11,7 @@ const useFetch = (url) => {
          try {
             const resp = await fetch(url);
             const data = await resp.json();
+            localStorage.setItem('data', JSON.stringify(data));
             setData(data);
          } catch (error) {
             console.log(error);
