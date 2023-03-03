@@ -5,9 +5,7 @@ import { useFetch } from '../hooks';
 const URL = '../../db.json';
 
 const Booking = () => {
-   const { loading, error } = useFetch(URL);
-   const [data, setData] = useState(JSON.parse(localStorage.getItem('data')));
-   // console.log('data:', data);
+   const { isLoading, error, data } = useFetch(URL);
 
    const [change, setChange] = useState();
 
@@ -20,6 +18,13 @@ const Booking = () => {
       console.log(e.target.value);
       setData([...data, { [e.target.name]: parseInt(e.target.quantity - 1) }]);
    };
+
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
+   if (error) {
+      return <p>ERROR</p>;
+   }
 
    return (
       <>
@@ -36,24 +41,23 @@ const Booking = () => {
                      </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                     {data &&
-                        data?.map((d) => (
-                           <tr key={d.id}>
-                              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                 {d.name}
-                              </td>
-                              <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                                 <button onClick={(e) => handleAdd(e)} value={d.quantity} name={d.name}>
-                                    +
-                                 </button>
-                              </td>
-                              <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                                 <button onClick={(e) => handleSub(e)} value={d.quantity} name={d.name}>
-                                    -
-                                 </button>
-                              </td>
-                           </tr>
-                        ))}
+                     {data.map((d) => (
+                        <tr key={d.id}>
+                           <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                              {d.name}
+                           </td>
+                           <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                              <button onClick={(e) => handleAdd(e)} value={d.quantity} name={d.name}>
+                                 +
+                              </button>
+                           </td>
+                           <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+                              <button onClick={(e) => handleSub(e)} value={d.quantity} name={d.name}>
+                                 -
+                              </button>
+                           </td>
+                        </tr>
+                     ))}
                   </tbody>
                </table>
             </div>
