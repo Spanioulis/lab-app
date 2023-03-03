@@ -6,18 +6,39 @@ const URL = '../../db.json';
 
 const Booking = () => {
    const { isLoading, error, data } = useFetch(URL);
+   console.log('data:', data[0]);
+   const [localData, setLocalData] = useState([]);
+   console.log('localData:', localData[0]);
 
-   const [change, setChange] = useState();
+   useEffect(() => {
+      const localStorageData = localStorage.getItem('data');
+      if (localStorageData) {
+         setLocalData(JSON.parse(localStorageData));
+      }
+   }, []);
 
-   const handleAdd = (e) => {
-      console.log(e.target.name);
-      console.log(+e.target.value);
-      setData([...data, { [e.target.name]: parseInt(e.target.quantity + 1) }]);
+   const handleClick = (event) => {
+      event.preventDefault();
+      const value = parseInt(event.target.value);
+      const name = event.target.name;
+      const id = event.target.id;
+
+      if (id === 'add') {
+         setLocalData({
+            ...localData,
+            [name]: value - 1
+         });
+      } else if (id === 'sub') {
+         setLocalData({
+            ...localData,
+            [name]: value + 1
+         });
+      }
    };
-   const handleSub = (e) => {
-      console.log(e.target.value);
-      setData([...data, { [e.target.name]: parseInt(e.target.quantity - 1) }]);
-   };
+
+   useEffect(() => {
+      localStorage.setItem('bookingData', JSON.stringify(localData));
+   }, [localData]);
 
    if (isLoading) {
       return <p>Loading...</p>;
@@ -25,6 +46,12 @@ const Booking = () => {
    if (error) {
       return <p>ERROR</p>;
    }
+
+   const mergedData = data.map((d) => ({
+      ...d,
+      quantity: localData[d.name] || d.quantity
+   }));
+   console.log('mergedData:', mergedData[0]);
 
    return (
       <>
@@ -41,18 +68,18 @@ const Booking = () => {
                      </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                     {data.map((d) => (
+                     {mergedData.map((d) => (
                         <tr key={d.id}>
                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                               {d.name}
                            </td>
                            <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                              <button onClick={(e) => handleAdd(e)} value={d.quantity} name={d.name}>
+                              <button onClick={(e) => handleClick(e)} value={d.quantity} name={d.name} id="add">
                                  +
                               </button>
                            </td>
                            <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                              <button onClick={(e) => handleSub(e)} value={d.quantity} name={d.name}>
+                              <button onClick={(e) => handleClick(e)} value={d.quantity} name={d.name} id="sub">
                                  -
                               </button>
                            </td>
@@ -62,7 +89,7 @@ const Booking = () => {
                </table>
             </div>
             {/* Col. Derecha */}
-            {data && <Inventory data={data} />}
+            {data && <Inventory data={mergedData} />}
          </div>
       </>
    );
