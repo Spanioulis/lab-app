@@ -6,9 +6,7 @@ const URL = '../../db.json';
 
 const Booking = () => {
    const { isLoading, error, data } = useFetch(URL);
-   console.log('data:', data[0]);
    const [localData, setLocalData] = useState([]);
-   console.log('localData:', localData[0]);
 
    useEffect(() => {
       const localStorageData = localStorage.getItem('data');
@@ -51,7 +49,6 @@ const Booking = () => {
       ...d,
       quantity: localData[d.name] || d.quantity
    }));
-   console.log('mergedData:', mergedData[0]);
 
    return (
       <>
