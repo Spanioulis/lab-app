@@ -16,9 +16,11 @@ const Booking = () => {
          const dataArray = Object.values(dataObject);
          setLocalData(dataArray);
       }
+   }, [data]);
 
+   useEffect(() => {
       localStorage.setItem('equipment', JSON.stringify(equipment));
-   }, [data, equipment]);
+   }, [equipment]);
 
    const handleAddSub = (id, event) => {
       event.preventDefault();
