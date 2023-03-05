@@ -7,25 +7,45 @@ const URL = '../../db.json';
 const Booking = () => {
    const { isLoading, error, data } = useFetch(URL);
    const [localData, setLocalData] = useState([]);
-
-   // BREAKPOINT
+   const [equipment, setEquipment] = useState(JSON.parse(localStorage.getItem('equipment')) || []);
 
    useEffect(() => {
       const dataObject = JSON.parse(localStorage.getItem('data'));
-      const dataArray = Object.values(dataObject);
-      setLocalData(dataArray);
-   }, []);
 
-   const handleClick = (id, event) => {
+      if (dataObject) {
+         const dataArray = Object.values(dataObject);
+         setLocalData(dataArray);
+      }
+
+      localStorage.setItem('equipment', JSON.stringify(equipment));
+   }, [data, equipment]);
+
+   const handleAddSub = (id, event) => {
       event.preventDefault();
       const idButton = event.target.id;
+      const name = event.target.name;
+      const index = equipment.findIndex((item) => item.id === id);
 
       if (idButton === 'add') {
          const updatedData = localData.map((item) =>
             item.id === id ? { ...item, quantity: parseInt(item.quantity) - 1 } : item
          );
          setLocalData(updatedData);
+
+         if (index === -1) {
+            setEquipment([...equipment, { id: id, name: name, quantity: 1 }]);
+         } else {
+            const updatedEquipment = [...equipment];
+            updatedEquipment[index].quantity += 1;
+            setEquipment(updatedEquipment);
+         }
       } else if (idButton === 'sub') {
+         if (index !== -1) {
+            const updatedEquipment = [...equipment];
+            updatedEquipment[index].quantity -= 1;
+            setEquipment(updatedEquipment);
+         }
+
          const updatedData = localData.map((item) =>
             item.id === id ? { ...item, quantity: parseInt(item.quantity) + 1 } : item
          );
@@ -51,45 +71,32 @@ const Booking = () => {
                   <table className="min-w-full divide-y-2 divide-gray-200 text-sm dark:divide-gray-700 ">
                      <thead>
                         <tr>
-                           <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
+                           <th className="w-64 whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
                               Nombre
+                           </th>
+                           <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
+                              Unidades
                            </th>
                         </tr>
                      </thead>
                      <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                        {localData.map((d) => (
-                           <tr key={d.id}>
-                              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                 {d.name}
-                              </td>
-                              <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                                 <button
-                                    onClick={(e) => handleClick(d.id, e)}
-                                    value={d.quantity}
-                                    name={d.name}
-                                    id="add"
-                                 >
-                                    +
-                                 </button>
-                              </td>
-                              <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
-                                 <button
-                                    onClick={(e) => handleClick(d.id, e)}
-                                    value={d.quantity}
-                                    name={d.name}
-                                    id="sub"
-                                 >
-                                    -
-                                 </button>
-                              </td>
-                           </tr>
-                        ))}
+                        {equipment?.length > 0 &&
+                           equipment.map((e) => (
+                              <tr key={e.name}>
+                                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                    {e.name}
+                                 </td>
+                                 <td className="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900 dark:text-white">
+                                    {e.quantity}
+                                 </td>
+                              </tr>
+                           ))}
                      </tbody>
                   </table>
                </div>
             </div>
             {/* Col. Derecha */}
-            {data && <Inventory data={localData} />}
+            {data?.length > 0 && <Inventory data={localData} handleAddSub={handleAddSub} />}
          </div>
       </>
    );

@@ -8,17 +8,11 @@ const useFetch = (url) => {
    useEffect(() => {
       const getData = async () => {
          try {
-            // const dataStorage = localStorage.getItem('data');
-            // if (dataStorage) {
-            //    setData(JSON.parse(localStorage.getItem('data')));
-            //    setIsLoading(false);
-            // } else {
             const resp = await fetch(url);
             const data = await resp.json();
             localStorage.setItem('data', JSON.stringify(data));
             setData(data);
             setIsLoading(false);
-            // }
          } catch (error) {
             console.log(error);
             setError(error);
