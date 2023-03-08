@@ -6,18 +6,47 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Box from "@mui/material/Box";
 
 function TestingP() {
-  const [value, setValue] = useState([]);
-  const [dateList, setDatelist] = useState([]);
+  //const [name, setName] = useState("");
+  // const [id, setId] = useState("");
+  // const [date, setDate] = useState(null);
+  // const [mail, setMail] = useState("");
 
-  const today = new Date();
+  //const [bookings, setBookings] = useState("");
+
+  const [booking, setBooking] = useState({
+    newName: "",
+    newId: "",
+  });
+
+  const setNewName = (e) => {
+    setBooking((existingValues) => ({
+      ...existingValues,
+      newName: e.target.value,
+    }));
+  };
+  const setNewId = (e) => {
+    setBooking((existingValues) => ({
+      ...existingValues,
+      newId: e.target.value,
+    }));
+  };
+  console.log(booking);
+
+  //console.log(date.$d.toDateString());
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setBookings({ ...bookings });
+  //   console.log(bookings);
+  // };
+
+  //const today = new Date();
 
   // FUNCIÓN PARA CONFIRMAR FECHA
   // const saveInitialDate = () => {
   //   let datePicked = value.$d.toDateString();
   //   setDatelist(datePicked);
   // };
-
-  console.log(value);
 
   return (
     <>
@@ -32,40 +61,60 @@ function TestingP() {
         >
           <TextField
             id="outlined-basic"
-            label="Nombre y apellido"
+            label="Nombre"
             variant="outlined"
-            onChange={(newName) => {
-              setValue(newName);
+            //name="firstName"
+            value={booking.newName}
+            // onChange={(e) => {
+            //   setName(e.target.value);
+            // }}
+            onChange={setNewName}
+          />
+          <TextField
+            id="outlined-basic"
+            label="DNI"
+            variant="outlined"
+            // name="newId"
+            value={booking.newId}
+            // onChange={(e) => {
+            //   setId(e.target.value);
+            // }}
+            onChange={setNewId}
+          />
+          {/* <TextField
+            id="outlined-basic"
+            label="Mail"
+            variant="outlined"
+            value={mail}
+            onChange={(e) => {
+              setMail(e.target.value);
             }}
           />
-          <TextField id="outlined-basic" label="DNI" variant="outlined" />
-          <TextField id="outlined-basic" label="Mail" variant="outlined" />
-
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               inputFormat="DD/MM/YYYY"
               minDate={today}
               label="Inicio Reserva"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
+              value={date}
+              onChange={(newDate) => {
+                setDate(newDate);
               }}
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider>
+          </LocalizationProvider> */}
         </Box>
       </div>
 
-      {/* BOTÓN DE CONFIRMAR FECHA */}
-      {/* <div className="sm:flex sm:gap-4">
+      {/* BOTÓN DE CONFIRMAR INPUTS */}
+      <div className="sm:flex sm:gap-4">
         <a
           className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
-          onClick={saveInitialDate}
+          // onClick={handleSubmit}
         >
-          Save Date & Time
+          Save Data
         </a>
       </div>
-      <div>{dateList}</div> */}
+      <div>tu reserva::: {name.firstName}</div>
     </>
   );
 }
