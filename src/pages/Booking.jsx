@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Inventory, MaterialLab } from '../components';
+import SelectLab from '../components/SelectLab';
 import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
@@ -14,14 +15,19 @@ const Booking = () => {
       // TODO -> Mirar porqué cuando arrancas está vacío. Es por qué al ser localData y estar vacío...
       // Lo que se puede hacer es que cuando arranque que la página, si no hay localStorage, que cargue la data...
 
-      if (localData.length === 0) {
+      if (localData.length !== 0) {
          const dataObject = JSON.parse(localStorage.getItem('local-data'));
-      }
-      const dataObject = JSON.parse(localStorage.getItem('local-data'));
+         if (dataObject) {
+            const dataArray = Object.values(dataObject);
+            setLocalData(dataArray);
+         }
+      } else {
+         const dataObject = JSON.parse(localStorage.getItem('data'));
 
-      if (dataObject) {
-         const dataArray = Object.values(dataObject);
-         setLocalData(dataArray);
+         if (dataObject) {
+            const dataArray = Object.values(dataObject);
+            setLocalData(dataArray);
+         }
       }
    }, [data]);
 
@@ -43,7 +49,6 @@ const Booking = () => {
       // TODO -> Eliminar de 'equipment' aquellos que vuelvan a cantidad 0 o se eliminen (futuro botón)
 
       const buscando = data.filter((d) => d.id === currentId);
-      console.log('buscando:', buscando);
 
       if (idButton === 'add') {
          const updatedData = localData.map((item) =>
@@ -72,9 +77,18 @@ const Booking = () => {
       }
    };
 
-   //! BOTÓN PRUEBA
+   //! BOTÓN PRUEBA (RESET)
    const handleReset = () => {
-      setLocalData(JSON.parse(localStorage.getItem('data')));
+      if (JSON.parse(localStorage.getItem('data'))) {
+         // console.log('hay data');
+         setLocalData(JSON.parse(localStorage.getItem('data')));
+      }
+      // console.log('NO');
+   };
+
+   const handleSelect = (e) => {
+      console.log(e.target.value);
+      console.log('h');
    };
 
    if (isLoading) {
@@ -96,6 +110,8 @@ const Booking = () => {
             >
                RESET
             </button>
+            <SelectLab handleSelect={handleSelect} />
+
             {/* Col. Derecha */}
             {data?.length > 0 && (
                <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />

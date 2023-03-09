@@ -1,16 +1,5 @@
-import { useEffect } from 'react';
-
 const Inventory = ({ data, localData, handleAddSub, currentId }) => {
-   console.log('currentId:', currentId);
    const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
-   // console.log('localData:', localData[0]);
-   // console.log('data:', data.sort(byName)[0]);
-
-   useEffect(() => {
-      // const buscando = data.filter((d) => d.id === currentId);
-      // console.log('buscando:', buscando);
-      // console.log();
-   }, [localData]);
 
    return (
       <div className="flex flex-col">
