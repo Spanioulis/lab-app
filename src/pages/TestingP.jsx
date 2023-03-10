@@ -11,34 +11,32 @@ function TestingP() {
   // const [date, setDate] = useState(null);
   // const [mail, setMail] = useState("");
 
-  //const [bookings, setBookings] = useState("");
+  const [bookings, setBookings] = useState([]);
 
   const [booking, setBooking] = useState({
     newName: "",
     newId: "",
   });
 
-  const setNewName = (e) => {
-    setBooking((existingValues) => ({
-      ...existingValues,
-      newName: e.target.value,
-    }));
-  };
-  const setNewId = (e) => {
-    setBooking((existingValues) => ({
-      ...existingValues,
-      newId: e.target.value,
-    }));
-  };
-  console.log(booking);
-
-  //console.log(date.$d.toDateString());
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setBookings({ ...bookings });
-  //   console.log(bookings);
+  // const setNewName = (e) => {
+  //   setBooking((existingValues) => ({
+  //     ...existingValues,
+  //     newName: e.target.value,
+  //   }));
   // };
+  // const setNewId = (e) => {
+  //   setBooking((existingValues) => ({
+  //     ...existingValues,
+  //     newId: e.target.value,
+  //   }));
+  // };
+
+  const addBooking = () => {
+    setBookings((prevBookings) => [...prevBookings, booking]);
+    console.log(bookings);
+  };
+
+  //console.log(booking);
 
   //const today = new Date();
 
@@ -63,23 +61,23 @@ function TestingP() {
             id="outlined-basic"
             label="Nombre"
             variant="outlined"
-            //name="firstName"
+            //name="newName"
             value={booking.newName}
-            // onChange={(e) => {
-            //   setName(e.target.value);
-            // }}
-            onChange={setNewName}
+            onChange={(e) => {
+              setBooking(e.target.value);
+            }}
+            // onChange={handleChange}
           />
           <TextField
             id="outlined-basic"
             label="DNI"
             variant="outlined"
-            // name="newId"
+            //name="newId"
             value={booking.newId}
-            // onChange={(e) => {
-            //   setId(e.target.value);
-            // }}
-            onChange={setNewId}
+            onChange={(e) => {
+              setBooking(e.target.value);
+            }}
+            // onChange={handleChange}
           />
           {/* <TextField
             id="outlined-basic"
@@ -109,16 +107,17 @@ function TestingP() {
       <div className="sm:flex sm:gap-4">
         <a
           className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
-          // onClick={handleSubmit}
+          onClick={addBooking}
         >
           Save Data
         </a>
       </div>
-      <div>tu reserva::: {name.firstName}</div>
+      <div>tu reserva::: </div>
     </>
   );
 }
 
+export default TestingP;
 
 // TEST CHATGPT
 // export default TestingP;
@@ -141,4 +140,3 @@ function TestingP() {
 //     resetForm,
 //   };
 // }
-
