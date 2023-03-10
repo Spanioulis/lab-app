@@ -6,42 +6,38 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Box from "@mui/material/Box";
 
 function TestingP() {
-  //const [name, setName] = useState("");
-  // const [id, setId] = useState("");
-  // const [date, setDate] = useState(null);
-  // const [mail, setMail] = useState("");
-
   const [bookings, setBookings] = useState([]);
-
   const [booking, setBooking] = useState({
     newName: "",
     newId: "",
+    newMail: "",
   });
+  const [date, setDate] = useState(null);
 
-  // const setNewName = (e) => {
-  //   setBooking((existingValues) => ({
-  //     ...existingValues,
-  //     newName: e.target.value,
-  //   }));
-  // };
-  // const setNewId = (e) => {
-  //   setBooking((existingValues) => ({
-  //     ...existingValues,
-  //     newId: e.target.value,
-  //   }));
-  // };
-
-  const addBooking = () => {
-    setBookings((prevBookings) => [...prevBookings, booking]);
-    console.log(bookings);
+  const handleChange = (event) => {
+    setBooking({
+      ...booking,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  //console.log(booking);
+  const addBooking = (e) => {
+    e.preventDefault();
+    setBookings((bookings) => [...bookings, { booking, date }]);
+    setBooking({
+      newName: "",
+      newId: "",
+      newMail: "",
+    });
+    setDate(null);
+  };
 
-  //const today = new Date();
+  console.log(bookings);
+
+  const today = new Date();
 
   // FUNCIÓN PARA CONFIRMAR FECHA
-  // const saveInitialDate = () => {
+  // const saveInitialDate = (event) => {
   //   let datePicked = value.$d.toDateString();
   //   setDatelist(datePicked);
   // };
@@ -61,49 +57,43 @@ function TestingP() {
             id="outlined-basic"
             label="Nombre"
             variant="outlined"
-            //name="newName"
+            name="newName"
             value={booking.newName}
-            onChange={(e) => {
-              setBooking(e.target.value);
-            }}
-            // onChange={handleChange}
+            onChange={handleChange}
           />
           <TextField
             id="outlined-basic"
             label="DNI"
             variant="outlined"
-            //name="newId"
+            name="newId"
             value={booking.newId}
-            onChange={(e) => {
-              setBooking(e.target.value);
-            }}
-            // onChange={handleChange}
+            onChange={handleChange}
           />
-          {/* <TextField
+          <TextField
             id="outlined-basic"
             label="Mail"
             variant="outlined"
-            value={mail}
-            onChange={(e) => {
-              setMail(e.target.value);
-            }}
+            name="newMail"
+            value={booking.newMail}
+            onChange={handleChange}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               inputFormat="DD/MM/YYYY"
               minDate={today}
               label="Inicio Reserva"
+              //name="newDate"
               value={date}
               onChange={(newDate) => {
                 setDate(newDate);
               }}
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider> */}
+          </LocalizationProvider>
         </Box>
       </div>
 
-      {/* BOTÓN DE CONFIRMAR INPUTS */}
+      {/* BOTÓN PARA CONFIRMAR INPUTS */}
       <div className="sm:flex sm:gap-4">
         <a
           className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
@@ -112,31 +102,8 @@ function TestingP() {
           Save Data
         </a>
       </div>
-      <div>tu reserva::: </div>
     </>
   );
 }
 
 export default TestingP;
-
-// TEST CHATGPT
-// export default TestingP;
-
-// function useForm(initialValues) {
-//   const [values, setValues] = useState(initialValues);
-
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-//     setValues({ ...values, [name]: value });
-//   };
-
-//   const resetForm = () => {
-//     setValues(initialValues);
-//   };
-
-//   return {
-//     values,
-//     handleChange,
-//     resetForm,
-//   };
-// }
