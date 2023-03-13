@@ -4,8 +4,10 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Box from "@mui/material/Box";
+import Overview from "./Overview";
 
 function TestingP() {
+  const [confirmation, setConfirmation] = useState();
   const [bookings, setBookings] = useState([]);
   const [booking, setBooking] = useState({
     newName: "",
@@ -23,7 +25,14 @@ function TestingP() {
 
   const addBooking = (e) => {
     e.preventDefault();
+    console.log(booking.newName);
+    console.log(date.$d);
     setBookings((bookings) => [...bookings, { booking, date }]);
+    setConfirmation(
+      `Enhorabuena ${
+        booking.newName
+      }, tu reserva ha sido confirmada para el día ${date.$d.toDateString()}`
+    );
     setBooking({
       newName: "",
       newId: "",
@@ -102,6 +111,7 @@ function TestingP() {
           Save Data
         </a>
       </div>
+      <Overview props={confirmation} />
     </>
   );
 }
