@@ -21,6 +21,14 @@ function TestingP() {
   });
   const [date, setDate] = useState(null);
 
+  const labs = [
+    { id: "Lab-1", name: "Laboratorio 1" },
+    { id: "Lab-2", name: "Laboratorio 2" },
+    { id: "Lab-3", name: "Laboratorio 3" },
+    { id: "Lab-4", name: "Laboratorio 4" },
+    { id: "Lab-5", name: "Laboratorio 5" },
+  ];
+
   const handleChange = (event) => {
     setBooking({
       ...booking,
@@ -110,9 +118,9 @@ function TestingP() {
                 value={booking.newLab}
                 onChange={handleChange}
               >
-                <MenuItem value={"lab1"}>Lab 1</MenuItem>
-                <MenuItem value={"lab2"}>Lab 2</MenuItem>
-                <MenuItem value={"lab3"}>Lab 3</MenuItem>
+                {labs.map((element) => {
+                  return <MenuItem value={element.id}>{element.name}</MenuItem>;
+                })}
               </Select>
             </FormControl>
           </LocalizationProvider>
@@ -122,7 +130,7 @@ function TestingP() {
       {/* BOTÓN PARA CONFIRMAR INPUTS */}
       <div className="sm:flex sm:gap-4">
         <a
-          className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
+          className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
           onClick={addBooking}
         >
           Save Data
