@@ -87,8 +87,14 @@ const Booking = () => {
    };
 
    const handleSelect = (e) => {
-      console.log(e.target.value);
-      console.log('h');
+      const labSelected = e.target.value;
+      const name = e.target.name;
+      const date = new Date();
+      console.log('name:', name);
+      console.log('labSelected:', labSelected);
+      // setEquipment({ ...equipment, [name]: labSelected });
+
+      setEquipment({ ...equipment, lab: labSelected, date: date });
    };
 
    if (isLoading) {
