@@ -1,11 +1,11 @@
 import React from 'react';
 
 const labs = [
-   { id: 'lab-1', name: 'Laboratorio 1' },
-   { id: 'lab-2', name: 'Laboratorio 2' },
-   { id: 'lab-3', name: 'Laboratorio 3' },
-   { id: 'lab-4', name: 'Laboratorio 4' },
-   { id: 'lab-5', name: 'Laboratorio 5' }
+   { id: 'lab-1', name: 'LAB-1' },
+   { id: 'lab-2', name: 'LAB-2' },
+   { id: 'lab-3', name: 'LAB-3' },
+   { id: 'lab-4', name: 'LAB-4' },
+   { id: 'lab-5', name: 'LAB-5' }
 ];
 
 const SelectLab = ({ handleSelect }) => {
@@ -43,7 +43,7 @@ const SelectLab = ({ handleSelect }) => {
                            role="menuitem"
                            x-on:click="isActive = !isActive"
                         >
-                           <button onClick={handleSelect} value={l.name}>
+                           <button onClick={handleSelect} value={l.name} name="lab">
                               {l.name}
                            </button>
                         </li>

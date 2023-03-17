@@ -1,31 +1,68 @@
-const Inventory = ({ data, localData, handleAddSub, currentId }) => {
+import { Table, TableCell, TableHead, TableRow } from '@mui/material';
+
+const Inventory = ({ data, localData, handleAddSub }) => {
    const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 
    return (
       <div className="flex flex-col">
          <h1 className="mb-2 text-center text-xl font-semibold text-blue-800">Stock actual</h1>
          <div className="h-96 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
-            <table className="min-w-full divide-y-2 divide-gray-200 text-sm dark:divide-gray-700 ">
-               <thead>
-                  <tr>
-                     <th className="whitespace-nowrap py-2 text-left font-medium text-gray-900 dark:text-white"></th>
-                     <th className="whitespace-nowrap py-2 text-left font-medium text-gray-900 dark:text-white"></th>
-                     <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
-                        Nombre
-                     </th>
-                     <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
-                        Stock
-                     </th>
-                     <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-white">
-                        Formato
-                     </th>
-                  </tr>
-               </thead>
+            {/* <TableContainer component={Paper}>
+               <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
+                  <TableHead>
+                     <TableRow>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell>Nombre</TableCell>
+                        <TableCell align="right">Stock</TableCell>
+                        <TableCell align="right">Formato</TableCell>
+                     </TableRow>
+                  </TableHead>
+                  <TableBody>
+                     {localData.sort(byName).map((d) => (
+                        <TableRow key={d.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                           <TableCell>
+                              {' '}
+                              <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="add">
+                                 +
+                              </button>
+                           </TableCell>
+                           <TableCell>
+                              <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="sub">
+                                 -
+                              </button>
+                           </TableCell>
+                           <TableCell component="th" scope="row">
+                              {d.name}
+                           </TableCell>
+                           <TableCell align="right">{d.quantity}</TableCell>
+                           <TableCell align="right">{d.format}</TableCell>
+                        </TableRow>
+                     ))}
+                  </TableBody>
+               </Table>
+            </TableContainer> */}
+            <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
+               <TableHead>
+                  <TableRow>
+                     <TableCell></TableCell>
+                     <TableCell></TableCell>
+                     <TableCell>Nombre</TableCell>
+                     <TableCell align="right">Stock</TableCell>
+                     <TableCell align="right">Formato</TableCell>
+                  </TableRow>
+               </TableHead>
                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {localData.sort(byName).map((d) => (
                      <tr key={d.id}>
                         <td className="whitespace-nowrap px-3 py-2 text-gray-700 dark:text-gray-200">
-                           <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="add">
+                           <button
+                              onClick={(e) => handleAddSub(d.id, e)}
+                              value={d.quantity}
+                              name={d.name}
+                              id="add"
+                              disabled={d.quantity === 0}
+                           >
                               +
                            </button>
                         </td>
@@ -37,7 +74,7 @@ const Inventory = ({ data, localData, handleAddSub, currentId }) => {
                         <td
                            className={
                               d.quantity !== 0
-                                 ? 'whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'
+                                 ? 'whitespace-nowrap px-4 py-2 font-normal text-gray-900 dark:text-white'
                                  : 'whitespace-nowrap px-4 py-2 font-bold text-red-700 dark:text-white'
                            }
                         >
@@ -45,9 +82,9 @@ const Inventory = ({ data, localData, handleAddSub, currentId }) => {
                         </td>
                         <td
                            className={
-                              d.quantity === 0
+                              d.quantity !== 0
                                  ? 'whitespace-nowrap px-4 py-2 text-center text-gray-700 dark:text-gray-200'
-                                 : 'whitespace-nowrap px-4 py-2 text-center text-red-700 dark:text-gray-200'
+                                 : 'whitespace-nowrap px-4 py-2 text-center font-bold text-red-700 dark:text-gray-200'
                            }
                         >
                            {d.quantity}
@@ -56,7 +93,8 @@ const Inventory = ({ data, localData, handleAddSub, currentId }) => {
                      </tr>
                   ))}
                </tbody>
-            </table>
+               {/* </table> */}
+            </Table>
          </div>
       </div>
    );

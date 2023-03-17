@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Inventory, MaterialLab } from '../components';
-import SelectLab from '../components/SelectLab';
+import { Inventory, MaterialLab, TestingP } from '../components';
 import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
@@ -46,11 +45,8 @@ const Booking = () => {
       const name = event.target.name;
       const index = equipment.findIndex((item) => item.id === id);
 
-      // TODO -> Eliminar de 'equipment' aquellos que vuelvan a cantidad 0 o se eliminen (futuro botón)
-
-      const buscando = data.filter((d) => d.id === currentId);
-
       if (idButton === 'add') {
+         // TODO -> comparar localData con data, para que no haya más cantidad
          const updatedData = localData.map((item) =>
             item.id === id ? { ...item, quantity: parseInt(item.quantity) - 1 } : item
          );
@@ -77,18 +73,11 @@ const Booking = () => {
       }
    };
 
-   //! BOTÓN PRUEBA (RESET)
+   // BOTÓN PRUEBA (RESET)
    const handleReset = () => {
       if (JSON.parse(localStorage.getItem('data'))) {
-         // console.log('hay data');
          setLocalData(JSON.parse(localStorage.getItem('data')));
       }
-      // console.log('NO');
-   };
-
-   const handleSelect = (e) => {
-      console.log(e.target.value);
-      console.log('h');
    };
 
    if (isLoading) {
@@ -100,22 +89,23 @@ const Booking = () => {
 
    return (
       <>
-         <h1 className="my-10 text-center text-4xl font-semibold text-green-500">Bookings</h1>
-         <div className="flex max-h-max justify-around">
+         <TestingP />
+         <div className="my-10 flex max-h-max justify-around ">
             {/* Col. Izquierda */}
-            <MaterialLab equipment={equipment} setEquipment={setEquipment} />
+            {data?.length > 0 && (
+               <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
+            )}
+
+            {/* Col. Central */}
             <button
                className="inline-block h-10 rounded-xl bg-slate-600 px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-100 focus:relative"
                onClick={handleReset}
             >
                RESET
             </button>
-            <SelectLab handleSelect={handleSelect} />
 
             {/* Col. Derecha */}
-            {data?.length > 0 && (
-               <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
-            )}
+            <MaterialLab equipment={equipment} setEquipment={setEquipment} />
          </div>
       </>
    );

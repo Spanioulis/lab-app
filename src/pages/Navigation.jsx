@@ -16,10 +16,10 @@ function Navigation() {
                         <Link to="/bookings">Bookings</Link>
                      </li>
                      <li>
-                        <Link to="/overview">Overview</Link>
+                        <Link to="/booking-list">Booking List</Link>
                      </li>
                      <li>
-                        <Link to="/testing">Testing</Link>
+                        <Link to="/overview">Overview</Link>
                      </li>
                   </ul>
                </nav>
