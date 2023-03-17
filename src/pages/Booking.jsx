@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Inventory, MaterialLab } from '../components';
+import { Inventory, MaterialLab, TestingP } from '../components';
 import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
@@ -88,6 +88,7 @@ const Booking = () => {
 
    return (
       <>
+         <TestingP />
          <div className="my-10 flex max-h-max justify-around ">
             {/* Col. Izquierda */}
             {data?.length > 0 && (
