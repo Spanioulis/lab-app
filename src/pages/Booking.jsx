@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Inventory, MaterialLab } from '../components';
-import SelectLab from '../components/SelectLab';
 import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
@@ -45,10 +44,6 @@ const Booking = () => {
       const idButton = event.target.id;
       const name = event.target.name;
       const index = equipment.findIndex((item) => item.id === id);
-
-      // TODO -> Eliminar de 'equipment' aquellos que vuelvan a cantidad 0 o se eliminen (futuro botón)
-
-      const buscando = data.filter((d) => d.id === currentId);
 
       if (idButton === 'add') {
          const updatedData = localData.map((item) =>
@@ -95,7 +90,11 @@ const Booking = () => {
       <>
          <div className="my-10 flex max-h-max justify-around ">
             {/* Col. Izquierda */}
-            <MaterialLab equipment={equipment} setEquipment={setEquipment} />
+            {data?.length > 0 && (
+               <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
+            )}
+
+            {/* Col. Central */}
             <button
                className="inline-block h-10 rounded-xl bg-slate-600 px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-100 focus:relative"
                onClick={handleReset}
@@ -104,9 +103,7 @@ const Booking = () => {
             </button>
 
             {/* Col. Derecha */}
-            {data?.length > 0 && (
-               <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
-            )}
+            <MaterialLab equipment={equipment} setEquipment={setEquipment} />
          </div>
       </>
    );
