@@ -4,7 +4,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Box from "@mui/material/Box";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import Overview from "./Overview";
+import { InputLabel } from "@mui/material";
 
 function TestingP() {
   const [confirmation, setConfirmation] = useState();
@@ -13,6 +17,7 @@ function TestingP() {
     newName: "",
     newId: "",
     newMail: "",
+    newLab: "",
   });
   const [date, setDate] = useState(null);
 
@@ -31,12 +36,15 @@ function TestingP() {
     setConfirmation(
       `Enhorabuena ${
         booking.newName
-      }, tu reserva ha sido confirmada para el día ${date.$d.toDateString()}`
+      }, tu reserva ha sido confirmada para el día ${date.$d.toDateString()} en el laboratorio ${
+        booking.newLab
+      }`
     );
     setBooking({
       newName: "",
       newId: "",
       newMail: "",
+      newLab: "",
     });
     setDate(null);
   };
@@ -44,12 +52,6 @@ function TestingP() {
   console.log(bookings);
 
   const today = new Date();
-
-  // FUNCIÓN PARA CONFIRMAR FECHA
-  // const saveInitialDate = (event) => {
-  //   let datePicked = value.$d.toDateString();
-  //   setDatelist(datePicked);
-  // };
 
   return (
     <>
@@ -98,6 +100,21 @@ function TestingP() {
               }}
               renderInput={(params) => <TextField {...params} />}
             />
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Lab</InputLabel>
+              <Select
+                id="demo-simple-select-label"
+                label="Lab"
+                variant="outlined"
+                name="newLab"
+                value={booking.newLab}
+                onChange={handleChange}
+              >
+                <MenuItem value={"lab1"}>Lab 1</MenuItem>
+                <MenuItem value={"lab2"}>Lab 2</MenuItem>
+                <MenuItem value={"lab3"}>Lab 3</MenuItem>
+              </Select>
+            </FormControl>
           </LocalizationProvider>
         </Box>
       </div>
