@@ -46,6 +46,7 @@ const Booking = () => {
       const index = equipment.findIndex((item) => item.id === id);
 
       if (idButton === 'add') {
+         // TODO -> comparar localData con data, para que no haya más cantidad
          const updatedData = localData.map((item) =>
             item.id === id ? { ...item, quantity: parseInt(item.quantity) - 1 } : item
          );

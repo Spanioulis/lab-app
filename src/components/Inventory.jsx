@@ -56,7 +56,13 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                   {localData.sort(byName).map((d) => (
                      <tr key={d.id}>
                         <td className="whitespace-nowrap px-3 py-2 text-gray-700 dark:text-gray-200">
-                           <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="add">
+                           <button
+                              onClick={(e) => handleAddSub(d.id, e)}
+                              value={d.quantity}
+                              name={d.name}
+                              id="add"
+                              disabled={d.quantity === 0}
+                           >
                               +
                            </button>
                         </td>

@@ -117,7 +117,11 @@ function TestingP() {
                         onChange={handleChange}
                      >
                         {labs.map((element) => {
-                           return <MenuItem value={element.id}>{element.name}</MenuItem>;
+                           return (
+                              <MenuItem value={element.id} key={element.id}>
+                                 {element.name}
+                              </MenuItem>
+                           );
                         })}
                      </Select>
                   </FormControl>
