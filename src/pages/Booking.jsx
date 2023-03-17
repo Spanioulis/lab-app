@@ -77,24 +77,11 @@ const Booking = () => {
       }
    };
 
-   //! BOTÓN PRUEBA (RESET)
+   // BOTÓN PRUEBA (RESET)
    const handleReset = () => {
       if (JSON.parse(localStorage.getItem('data'))) {
-         // console.log('hay data');
          setLocalData(JSON.parse(localStorage.getItem('data')));
       }
-      // console.log('NO');
-   };
-
-   const handleSelect = (e) => {
-      const labSelected = e.target.value;
-      const name = e.target.name;
-      const date = new Date();
-      console.log('name:', name);
-      console.log('labSelected:', labSelected);
-      // setEquipment({ ...equipment, [name]: labSelected });
-
-      setEquipment({ ...equipment, lab: labSelected, date: date });
    };
 
    if (isLoading) {
@@ -106,8 +93,7 @@ const Booking = () => {
 
    return (
       <>
-         <h1 className="my-10 text-center text-4xl font-semibold text-green-500">Bookings</h1>
-         <div className="flex max-h-max justify-around">
+         <div className="my-10 flex max-h-max justify-around ">
             {/* Col. Izquierda */}
             <MaterialLab equipment={equipment} setEquipment={setEquipment} />
             <button
@@ -116,7 +102,6 @@ const Booking = () => {
             >
                RESET
             </button>
-            <SelectLab handleSelect={handleSelect} />
 
             {/* Col. Derecha */}
             {data?.length > 0 && (

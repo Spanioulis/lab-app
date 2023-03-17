@@ -4,13 +4,9 @@ const Button = ({ setEquipment }) => {
    };
 
    return (
-      <span className="inline-flex divide-x overflow-hidden rounded-md border bg-white shadow-sm">
-         <button className="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-            Reservar
-         </button>
-
+      <span className="mt-2 inline-flex w-12 divide-x overflow-hidden rounded-md border bg-white shadow-sm">
          <button
-            className="inline-block py-2 px-4 text-gray-700 hover:bg-gray-50 focus:relative"
+            className="inline-block w-12 py-2 px-4 text-gray-700 hover:bg-gray-50 focus:relative"
             title="View Orders"
             onClick={deleteEquipment}
          >
