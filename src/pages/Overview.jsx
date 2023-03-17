@@ -1,10 +1,11 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
-const Overview = () => {
+const Overview = ({ props }) => {
   return (
-    <>
-      <div>Hola</div>
-    </>
+    <Typography variant="h6" component="h6" align="center">
+      {props}
+    </Typography>
   );
 };
 
