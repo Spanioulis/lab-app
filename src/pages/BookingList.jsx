@@ -7,7 +7,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Overview from "./Overview";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function BookingList({ bookings }) {
-  // console.log(bookings[0].booking.newName);
+  //console.log(bookings[0].booking.newName);
 
   function createData(nombre, dni, fechaReserva, lab, material) {
     return { nombre, dni, fechaReserva, lab, material };
@@ -41,13 +40,15 @@ function BookingList({ bookings }) {
     // createData(tableName, 237, 9.0, 37, 4.3),
   ];
 
-  // bookings.map((element, i) => {
-  //   console.log(element[i].date);
-  // });
-
   return (
     <>
-      {/* <h1>{bookings[0].booking.newName}</h1> */}
+      {/* <h1>{bookings[0].booking.newName}</h1>
+      <h1>{bookings[1].booking.newName}</h1> */}
+      {bookings.map((element, i) => {
+        console.log(element[i]);
+        return <h1 key={element[i]}>tu nombre: {element.booking.newName}</h1>;
+      })}
+
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
