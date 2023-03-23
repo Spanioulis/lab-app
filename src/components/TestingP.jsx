@@ -11,7 +11,7 @@ import Overview from "../pages/Overview";
 import BookingList from "../pages/BookingList";
 import { InputLabel } from "@mui/material";
 
-function TestingP() {
+function TestingP({ equipment }) {
   const [confirmation, setConfirmation] = useState();
   const [bookings, setBookings] = useState([]);
   const [booking, setBooking] = useState({
@@ -41,7 +41,7 @@ function TestingP() {
     e.preventDefault();
     console.log(booking.newName);
     console.log(date.$d);
-    setBookings((bookings) => [...bookings, { booking, date }]);
+    setBookings((bookings) => [...bookings, { booking, date, equipment }]);
     setConfirmation(
       `Enhorabuena ${
         booking.newName
@@ -56,6 +56,7 @@ function TestingP() {
       newLab: "",
     });
     setDate(null);
+    setEquipment(null);
   };
 
   console.log(bookings);

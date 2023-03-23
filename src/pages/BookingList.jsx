@@ -31,24 +31,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 function BookingList({ bookings }) {
   //console.log(bookings[0].booking.newName);
 
-  function createData(nombre, dni, fechaReserva, lab, material) {
-    return { nombre, dni, fechaReserva, lab, material };
-  }
+  // function createData(nombre, dni, fechaReserva, lab, material) {
+  //   return { nombre, dni, fechaReserva, lab, material };
+  // }
 
-  const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    // createData(tableName, 237, 9.0, 37, 4.3),
-  ];
+  // const rows = [
+  //   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  //   createData(123, 12, 23, 32, 3),
+  // ];
+
+  // equipment.map((element, i) => {
+  //   console.log("este es el mio");
+  //   console.log(element);
+  // });
 
   return (
     <>
-      {/* <h1>{bookings[0].booking.newName}</h1>
-      <h1>{bookings[1].booking.newName}</h1> */}
-      {bookings.map((element, i) => {
-        console.log(element[i]);
-        return <h1 key={element[i]}>tu nombre: {element.booking.newName}</h1>;
-      })}
-
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
@@ -61,17 +59,30 @@ function BookingList({ bookings }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.nombre}>
+            {bookings.map((element, i) => (
+              <StyledTableRow key={element[i]}>
                 <StyledTableCell component="th" scope="row">
-                  {row.nombre}
+                  {element.booking.newName}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.dni}</StyledTableCell>
                 <StyledTableCell align="right">
-                  {row.fechaReserva}
+                  {element.booking.newId}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.lab}</StyledTableCell>
-                <StyledTableCell align="right">{row.material}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {element.date.$d.toDateString()}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {element.booking.newLab}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {element.equipment.map((element, i) => (
+                    <>
+                      <p>
+                        {element.name} / Unidades: {element.quantity} / Ref:{" "}
+                        {element.id}
+                      </p>
+                    </>
+                  ))}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
