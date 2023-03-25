@@ -1,6 +1,8 @@
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 
 const Inventory = ({ data, localData, handleAddSub }) => {
+   console.log('data:', data);
+   console.log('localData:', localData);
    const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 
    return (
@@ -47,6 +49,7 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                   <TableRow>
                      <TableCell></TableCell>
                      <TableCell></TableCell>
+                     <TableCell></TableCell>
                      <TableCell>Nombre</TableCell>
                      <TableCell align="right">Stock</TableCell>
                      <TableCell align="right">Formato</TableCell>
@@ -70,6 +73,17 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                            <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="sub">
                               -
                            </button>
+                        </td>
+                        <td>
+                           <img
+                              src={import.meta.resolve(`../assets/images/${d?.img}.png`)}
+                              style={{
+                                 borderRadius: '10px',
+                                 margin: '0.2rem',
+                                 maxWidth: '75px',
+                                 maxHeight: '75px'
+                              }}
+                           />
                         </td>
                         <td
                            className={
