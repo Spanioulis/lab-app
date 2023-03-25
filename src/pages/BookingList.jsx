@@ -45,7 +45,7 @@ function BookingList({ bookings }) {
                </TableHead>
                <TableBody>
                   {bookings.map((element, i) => (
-                     <StyledTableRow key={element[i]}>
+                     <StyledTableRow key={i}>
                         <StyledTableCell component="th" scope="row">
                            {element.booking.newName}
                         </StyledTableCell>
