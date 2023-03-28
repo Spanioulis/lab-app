@@ -49,39 +49,6 @@ function TestingP({ equipment, bookings, setBookings, setEquipment }) {
     } else if (date == null) {
       return alert("La fecha es obligatoria");
     } else {
-      console.log(booking.newLab);
-      //console.log(date.$d);
-      setBookings((bookings) => [...bookings, { booking, date, equipment }]);
-      setConfirmation(
-        `Enhorabuena ${
-          booking.newName
-        }, tu reserva ha sido confirmada para el día ${date.$d.toDateString()} en el laboratorio ${
-          booking.newLab
-        }`
-      );
-      setBooking({
-        newName: "",
-        newId: "",
-        newMail: "",
-        newLab: "",
-      });
-      setDate(null);
-      setEquipment([]);
-    }
-  };
-
-  const addBooking2 = (e) => {
-    e.preventDefault();
-    if (
-      booking.newName == "" ||
-      booking.newId == "" ||
-      booking.newMail == "" ||
-      booking.newLab == ""
-    ) {
-      return alert("Todos los campos son requeridos");
-    } else if (date == null) {
-      return alert("La fecha es obligatoria");
-    } else {
       Swal.fire({
         title: `Quieres confirmar tu reserva el día ${date.$d.toDateString()} en el lab ${
           booking.newLab
@@ -198,7 +165,7 @@ function TestingP({ equipment, bookings, setBookings, setEquipment }) {
       <div className="sm:flex sm:gap-4">
         <a
           className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
-          onClick={addBooking2}
+          onClick={addBooking}
         >
           Save Data
         </a>
