@@ -10,8 +10,9 @@ import Select from "@mui/material/Select";
 import Overview from "../pages/Overview";
 import BookingList from "../pages/BookingList";
 import { InputLabel } from "@mui/material";
+import Swal from "sweetalert2";
 
-function TestingP({ equipment, bookings, setBookings }) {
+function TestingP({ equipment, bookings, setBookings, setEquipment }) {
   const [confirmation, setConfirmation] = useState();
   const [booking, setBooking] = useState({
     newName: "",
@@ -65,9 +66,57 @@ function TestingP({ equipment, bookings, setBookings }) {
         newLab: "",
       });
       setDate(null);
+      setEquipment([]);
     }
   };
 
+  const addBooking2 = (e) => {
+    e.preventDefault();
+    if (
+      booking.newName == "" ||
+      booking.newId == "" ||
+      booking.newMail == "" ||
+      booking.newLab == ""
+    ) {
+      return alert("Todos los campos son requeridos");
+    } else if (date == null) {
+      return alert("La fecha es obligatoria");
+    } else {
+      Swal.fire({
+        title: `Quieres confirmar tu reserva el día ${date.$d.toDateString()} en el lab ${
+          booking.newLab
+        }?`,
+        text: "Esta confirmación no se puede revertir!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, confirmar!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            `Enhorabuena ${
+              booking.newName
+            }, tu reserva ha sido confirmada para el día ${date.$d.toDateString()} en el laboratorio ${
+              booking.newLab
+            }`
+          );
+          setBookings((bookings) => [
+            ...bookings,
+            { booking, date, equipment },
+          ]);
+          setBooking({
+            newName: "",
+            newId: "",
+            newMail: "",
+            newLab: "",
+          });
+          setDate(null);
+          setEquipment([]);
+        }
+      });
+    }
+  };
   const today = new Date();
 
   return (
@@ -149,7 +198,7 @@ function TestingP({ equipment, bookings, setBookings }) {
       <div className="sm:flex sm:gap-4">
         <a
           className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
-          onClick={addBooking}
+          onClick={addBooking2}
         >
           Save Data
         </a>
