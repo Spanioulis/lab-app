@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Inventory, MaterialLab, TestingP } from '../components';
+import { Inventory, MaterialLab, SaveData } from '../components';
 import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
@@ -89,7 +89,7 @@ const Booking = ({ bookings, setBookings }) => {
 
    return (
       <>
-         <TestingP equipment={equipment} bookings={bookings} setBookings={setBookings} />
+         <SaveData equipment={equipment} setEquipment={setEquipment} bookings={bookings} setBookings={setBookings} />
          <div className="my-10 flex max-h-max flex-col justify-around md:flex-row ">
             {/* Col. Izquierda */}
             {data?.length > 0 && (

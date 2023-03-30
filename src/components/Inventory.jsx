@@ -1,8 +1,6 @@
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 
 const Inventory = ({ data, localData, handleAddSub }) => {
-   console.log('data:', data);
-   console.log('localData:', localData);
    const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 
    return (
