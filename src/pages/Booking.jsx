@@ -90,19 +90,17 @@ const Booking = ({ bookings, setBookings }) => {
    return (
       <>
          <SaveData equipment={equipment} setEquipment={setEquipment} bookings={bookings} setBookings={setBookings} />
-         <div className="my-10 flex max-h-max flex-col justify-around md:flex-row ">
+         <div className="my-10 flex max-h-max flex-col justify-around gap-5 md:flex-row">
             {/* Col. Izquierda */}
             {data?.length > 0 && (
-               <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
+               <Inventory
+                  localData={localData}
+                  data={data}
+                  currentId={currentId}
+                  handleAddSub={handleAddSub}
+                  handleReset={handleReset}
+               />
             )}
-
-            {/* Col. Central */}
-            <button
-               className="inline-block h-10 rounded-xl bg-slate-600 px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-100 focus:relative"
-               onClick={handleReset}
-            >
-               R
-            </button>
 
             {/* Col. Derecha */}
             <MaterialLab equipment={equipment} setEquipment={setEquipment} />
