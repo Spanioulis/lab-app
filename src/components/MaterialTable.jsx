@@ -10,7 +10,19 @@ function MaterialTable({ equipment }) {
 
    return (
       <TableContainer component={Paper}>
-         <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
+         <Table
+            sx={{
+               minWidth: 450,
+               '@media (max-width: 1200px)': {
+                  minWidth: 350
+               },
+               '@media (max-width: 900px)': {
+                  minWidth: 275
+               }
+            }}
+            size="small"
+            aria-label="a dense table"
+         >
             <TableHead>
                <TableRow>
                   <TableCell>Nombre</TableCell>

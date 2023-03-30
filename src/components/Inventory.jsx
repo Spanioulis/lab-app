@@ -9,42 +9,19 @@ const Inventory = ({ data, localData, handleAddSub }) => {
       <div className="flex flex-col">
          <h1 className="mb-2 text-center text-xl font-semibold text-blue-800">Stock actual</h1>
          <div className="h-96 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
-            {/* <TableContainer component={Paper}>
-               <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
-                  <TableHead>
-                     <TableRow>
-                        <TableCell></TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>Nombre</TableCell>
-                        <TableCell align="right">Stock</TableCell>
-                        <TableCell align="right">Formato</TableCell>
-                     </TableRow>
-                  </TableHead>
-                  <TableBody>
-                     {localData.sort(byName).map((d) => (
-                        <TableRow key={d.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                           <TableCell>
-                              {' '}
-                              <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="add">
-                                 +
-                              </button>
-                           </TableCell>
-                           <TableCell>
-                              <button onClick={(e) => handleAddSub(d.id, e)} value={d.quantity} name={d.name} id="sub">
-                                 -
-                              </button>
-                           </TableCell>
-                           <TableCell component="th" scope="row">
-                              {d.name}
-                           </TableCell>
-                           <TableCell align="right">{d.quantity}</TableCell>
-                           <TableCell align="right">{d.format}</TableCell>
-                        </TableRow>
-                     ))}
-                  </TableBody>
-               </Table>
-            </TableContainer> */}
-            <Table sx={{ minWidth: 450 }} size="small" aria-label="a dense table">
+            <Table
+               sx={{
+                  minWidth: 450,
+                  '@media (max-width: 1200px)': {
+                     minWidth: 350
+                  },
+                  '@media (max-width: 900px)': {
+                     minWidth: 275
+                  }
+               }}
+               size="small"
+               aria-label="a dense table"
+            >
                <TableHead>
                   <TableRow>
                      <TableCell></TableCell>
@@ -107,7 +84,6 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                      </tr>
                   ))}
                </tbody>
-               {/* </table> */}
             </Table>
          </div>
       </div>
