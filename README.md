@@ -1,8 +1,8 @@
--  Filter Sort por fecha (actual)
--  Botón "Save Data" sin envío de datos (campos requeridos Input)
--  Sweet Alert success cuando se reserva
+-  ~~Filter Sort por fecha (actual)~~
+-  ~~Botón "Save Data" sin envío de datos (campos requeridos Input)~~
+-  ~~Sweet Alert success cuando se reserva~~
 -  ~~Fotos Material~~
--  Aplicar setEquipment([]) al hacer reserva
+-  ~~Aplicar setEquipment([]) al hacer reserva~~
 -  Tablas responsive
--  TestingP (cambio nombre)
+-  ~~TestingP (cambio nombre)~~
 -  Navbar responsive (funcional)

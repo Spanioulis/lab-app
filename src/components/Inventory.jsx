@@ -1,23 +1,17 @@
 import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 
-const Inventory = ({ data, localData, handleAddSub }) => {
-   console.log('data:', data);
-   console.log('localData:', localData);
+const Inventory = ({ localData, handleAddSub, handleReset }) => {
    const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 
    return (
       <div className="flex flex-col">
-         <h1 className="mb-2 text-center text-xl font-semibold text-blue-800">Stock actual</h1>
+         <h1 className="mb-2 text-center text-xl font-semibold text-blue-800">
+            Stock actual <button onClick={handleReset}>(R)</button>
+         </h1>
          <div className="h-96 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
             <Table
                sx={{
-                  minWidth: 450,
-                  '@media (max-width: 1200px)': {
-                     minWidth: 350
-                  },
-                  '@media (max-width: 900px)': {
-                     minWidth: 275
-                  }
+                  minWidth: 450
                }}
                size="small"
                aria-label="a dense table"
@@ -65,8 +59,8 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                         <td
                            className={
                               d.quantity !== 0
-                                 ? 'whitespace-nowrap px-4 py-2 font-normal text-gray-900 dark:text-white'
-                                 : 'whitespace-nowrap px-4 py-2 font-bold text-red-700 dark:text-white'
+                                 ? 'px-4 py-2 font-normal text-gray-900 dark:text-white'
+                                 : 'px-4 py-2 font-bold text-red-700 dark:text-white'
                            }
                         >
                            {d.name}
@@ -74,8 +68,8 @@ const Inventory = ({ data, localData, handleAddSub }) => {
                         <td
                            className={
                               d.quantity !== 0
-                                 ? 'whitespace-nowrap px-4 py-2 text-center text-gray-700 dark:text-gray-200'
-                                 : 'whitespace-nowrap px-4 py-2 text-center font-bold text-red-700 dark:text-gray-200'
+                                 ? 'px-4 py-2 text-center text-gray-700 dark:text-gray-200'
+                                 : 'px-4 py-2 text-center font-bold text-red-700 dark:text-gray-200'
                            }
                         >
                            {d.quantity}
