@@ -101,7 +101,6 @@ const Booking = ({ bookings, setBookings }) => {
                   handleReset={handleReset}
                />
             )}
-
             {/* Col. Derecha */}
             <MaterialLab equipment={equipment} setEquipment={setEquipment} />
          </div>
