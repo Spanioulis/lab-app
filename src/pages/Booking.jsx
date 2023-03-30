@@ -90,7 +90,7 @@ const Booking = ({ bookings, setBookings }) => {
    return (
       <>
          <TestingP equipment={equipment} bookings={bookings} setBookings={setBookings} />
-         <div className="my-10 flex max-h-max justify-around ">
+         <div className="my-10 flex max-h-max flex-col justify-around md:flex-row ">
             {/* Col. Izquierda */}
             {data?.length > 0 && (
                <Inventory localData={localData} data={data} currentId={currentId} handleAddSub={handleAddSub} />
@@ -101,7 +101,7 @@ const Booking = ({ bookings, setBookings }) => {
                className="inline-block h-10 rounded-xl bg-slate-600 px-4 py-2 text-sm font-medium text-gray-400 hover:bg-gray-100 focus:relative"
                onClick={handleReset}
             >
-               RESET
+               R
             </button>
 
             {/* Col. Derecha */}
