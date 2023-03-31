@@ -3,6 +3,6 @@
 -  ~~Sweet Alert success cuando se reserva~~
 -  ~~Fotos Material~~
 -  ~~Aplicar setEquipment([]) al hacer reserva~~
--  Tablas responsive
+-  ~~Tablas responsive~~
 -  ~~TestingP (cambio nombre)~~
--  Navbar responsive (funcional)
+-  ~~Navbar responsive (funcional)~~
