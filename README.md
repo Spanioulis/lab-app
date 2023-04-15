@@ -18,9 +18,12 @@ En la sección de __Book List__ el usuario puede acceder al listado de reservas 
 
 Proyecto realizado con React & JavaScript y maquetado con TailwindCSS (DaisyUI) & MaterialUI. Enfocado en la versión de escritorio pero responsive, se ha usado Vite por su rapidez de compilación. El proyecto está formado por las siguientes carpetas: *components* (global) para todos los componentes, carpeta *assets* para las imágenes (formato .png) del material, carpeta *hooks* (custom hook *useFetch*), carpeta *page* para las dos rutas ('/', '/bookings', '/overview', 'booking-list'), carpeta *styles* (estilos de la app).
 
-![Lab App Demo]()
-![Bookings]()
-![Booking List]()
+![Lab App Demo](https://user-images.githubusercontent.com/97700906/232208891-07a2038b-3668-47c6-94bf-19bcccf2dfda.gif)
+![Home](https://user-images.githubusercontent.com/97700906/232208434-c536bc84-916f-46cf-938b-6c762776496b.png)
+![Bookings](https://user-images.githubusercontent.com/97700906/232208453-2869d24e-afba-4493-9463-a20a7e6e28ad.png)
+![Save Data](https://user-images.githubusercontent.com/97700906/232208505-cc41484e-70a9-4000-ab22-f0a9b6ea1c77.png)
+![Confirm Booking](https://user-images.githubusercontent.com/97700906/232208510-c4279336-8a07-44c0-be5e-29011d961249.png)
+![Booking List](https://user-images.githubusercontent.com/97700906/232208482-fe6a67a7-3095-474d-b08c-fd78f4517b8e.png)
 
 ## Instalación
 
@@ -31,4 +34,5 @@ Proyecto realizado con React & JavaScript y maquetado con TailwindCSS (DaisyUI) 
 
 ## Calidad de código
 
-![codefactor]()
+![Codefactor LabApp](https://user-images.githubusercontent.com/97700906/232208640-83b037f6-a2b1-445a-9bfe-ee36a198a84a.PNG)
+
