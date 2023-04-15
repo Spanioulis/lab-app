@@ -105,6 +105,7 @@ function SaveData({ equipment, setBookings, setEquipment }) {
                   onChange={handleChange}
                />
                <TextField
+                  type="email"
                   required
                   id="outlined-basic"
                   label="Mail"
@@ -156,7 +157,7 @@ function SaveData({ equipment, setBookings, setEquipment }) {
                className="m-auto my-4 block cursor-pointer rounded border border-red-800 bg-red-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-red-800 focus:outline-none focus:ring active:text-red-800"
                onClick={addBooking}
             >
-               Save Data
+               Reservar
             </a>
          </div>
          <Overview props={confirmation} />

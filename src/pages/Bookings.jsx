@@ -4,7 +4,7 @@ import { useFetch } from '../hooks';
 
 const URL = '../../db.json';
 
-const Booking = ({ bookings, setBookings }) => {
+const Bookings = ({ bookings, setBookings }) => {
    const { isLoading, error, data } = useFetch(URL);
    const [localData, setLocalData] = useState(JSON.parse(localStorage.getItem('local-data')) || []);
    const [equipment, setEquipment] = useState(JSON.parse(localStorage.getItem('equipment')) || []);
@@ -108,4 +108,4 @@ const Booking = ({ bookings, setBookings }) => {
    );
 };
 
-export default Booking;
+export default Bookings;
