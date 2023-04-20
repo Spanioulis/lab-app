@@ -52,7 +52,7 @@ const Inventory = ({ localData, handleAddSub, handleReset }) => {
                 </td>
                 <td>
                   <img
-                    src={import.meta.resolve(`../assets/${d?.img}.png`)}
+                    src={import.meta.resolve(`/images/${d?.img}.png`)}
                     style={{
                       borderRadius: "10px",
                       margin: "0.2rem",
