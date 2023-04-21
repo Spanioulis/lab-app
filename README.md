@@ -12,7 +12,7 @@ En la sección de **Book List** el usuario puede acceder al listado de reservas 
 
 ## Demo
 
-🚀 [Click aquí](https://app.netlify.com/sites/lab-booking-app/settings/general)
+🚀 [Click aquí](https://lab-booking-app.netlify.app/)
 
 ## Descripción
 
